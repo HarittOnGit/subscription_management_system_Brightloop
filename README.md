@@ -1,10 +1,10 @@
 # Brightloop - Subscription Management System
 
 Complete integrated hackathon foundation for Brightloop, incorporating full feature sets across:
-- **Person 1**: Authentication, JWT session security, RBAC (Admin, Staff, Customer), user management, and customer portal.
-- **Person 2**: Catalog engine (Products, multi-attribute Variants, Plans with auto/early close, Quotation Templates with dynamic lines).
-- **Person 3**: Subscriptions lifecycle state machine, Taxes, Discounts (fixed & percentage, product & subscription level), and precision paise pricing calculation engine.
-- **Person 4**: Automated & on-demand Billing engine ("never billed twice or skipped"), Invoices, Payments, Finance Dashboard with Recharts, and realistic database seed script.
+- **Haritt Moothedan(HarittOnGit)**: Authentication, JWT session security, RBAC (Admin, Staff, Customer), user management, and customer portal.
+- **Midhun Milton(therealmcube)**: Catalog engine (Products, multi-attribute Variants, Plans with auto/early close, Quotation Templates with dynamic lines).
+- **Febin Shaibu(sreya5214)**: Subscriptions lifecycle state machine, Taxes, Discounts (fixed & percentage, product & subscription level), and precision paise pricing calculation engine.
+- **Jeremiah Thomas Bency(jeremiahbency2497)**: Automated & on-demand Billing engine ("never billed twice or skipped"), Invoices, Payments, Finance Dashboard with Recharts, and realistic database seed script.
 
 ---
 
