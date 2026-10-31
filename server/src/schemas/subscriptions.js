@@ -1,17 +1,17 @@
-const { z } = require("zod");
+import { z } from "zod";
 
 const optionalNumber = (min = 0) =>
   z.coerce.number().min(min).nullable().optional();
 
 const optionalDate = z.coerce.date().nullable().optional();
 
-const taxSchema = z.object({
+export const taxSchema = z.object({
   name: z.string().trim().min(1, "Tax name is required"),
   percentage: z.coerce.number().min(0).max(100),
   isActive: z.boolean().optional().default(true),
 });
 
-const discountSchema = z.object({
+const discountFieldsSchema = z.object({
   name: z.string().trim().min(1, "Discount name is required"),
   type: z.enum(["FIXED", "PERCENT"]),
   value: z.coerce.number().positive(),
@@ -23,7 +23,9 @@ const discountSchema = z.object({
   appliesTo: z.enum(["PRODUCT", "SUBSCRIPTION"]),
   productId: z.string().trim().nullable().optional(),
   isActive: z.boolean().optional().default(true),
-}).refine(
+});
+
+export const discountSchema = discountFieldsSchema.refine(
   (data) => !data.startDate || !data.endDate || data.endDate >= data.startDate,
   {
     message: "End date must be on or after start date",
@@ -37,7 +39,9 @@ const discountSchema = z.object({
   }
 );
 
-const subscriptionSchema = z.object({
+export const discountUpdateSchema = discountFieldsSchema.partial();
+
+export const subscriptionSchema = z.object({
   customerId: z.string().trim().min(1, "Customer is required"),
   planId: z.string().trim().min(1, "Plan is required"),
   templateId: z.string().trim().nullable().optional(),
@@ -67,9 +71,3 @@ const subscriptionSchema = z.object({
     path: ["expiryDate"],
   }
 );
-
-module.exports = {
-  taxSchema,
-  discountSchema,
-  subscriptionSchema,
-};

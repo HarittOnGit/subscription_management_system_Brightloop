@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
+import taxRoutes from './routes/taxes.js';
+import discountRoutes from './routes/discounts.js';
 
 dotenv.config();
 
@@ -57,6 +59,9 @@ app.get('/api/health', async (req, res) => {
      app.use('/api/products', productRoutes);
      app.use('/api/plans', planRoutes);
    ========================================================================== */
+
+app.use('/api/taxes', taxRoutes);
+app.use('/api/discounts', discountRoutes);
 
 app.listen(PORT, () => {
   console.log(`[Brightloop Server] Running on http://localhost:${PORT}`);
