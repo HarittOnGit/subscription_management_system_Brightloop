@@ -31,7 +31,7 @@ const MENU_ITEMS = {
     { name: 'Templates', to: '/templates', icon: FileStack },
     { name: 'Taxes', to: '/taxes', icon: Receipt },
     { name: 'Discounts', to: '/discounts', icon: Percent },
-    { name: 'Staff', to: '/staff', icon: ShieldCheck },
+    { name: 'Staff Members', to: '/staff', icon: ShieldCheck },
   ],
   STAFF: [
     { name: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
