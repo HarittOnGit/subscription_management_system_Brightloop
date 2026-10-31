@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 import taxRoutes from './routes/taxes.js';
 import discountRoutes from './routes/discounts.js';
+import productRoutes from './routes/products.js';
+import planRoutes from './routes/plans.js';
+import templateRoutes from './routes/templates.js';
 
 dotenv.config();
 
@@ -54,6 +57,9 @@ app.get('/api/health', async (req, res) => {
      app.use('/api/auth', authRoutes);
      app.use('/api/customers', customerRoutes);
      app.use('/api/subscriptions', subscriptionRoutes);
+     app.use('/api/products', productRoutes);
+     app.use('/api/plans', planRoutes);
+     app.use('/api/templates', templateRoutes);
      app.use('/api/invoices', invoiceRoutes);
      app.use('/api/payments', paymentRoutes);
      app.use('/api/products', productRoutes);
@@ -62,6 +68,9 @@ app.get('/api/health', async (req, res) => {
 
 app.use('/api/taxes', taxRoutes);
 app.use('/api/discounts', discountRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/plans', planRoutes);
+app.use('/api/templates', templateRoutes);
 
 app.listen(PORT, () => {
   console.log(`[Brightloop Server] Running on http://localhost:${PORT}`);
